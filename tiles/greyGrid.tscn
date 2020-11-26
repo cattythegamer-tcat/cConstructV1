@@ -1,0 +1,18 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://tiles/greyGrid.gd" type="Script" id=1]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="Gradient" id=2]
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_texture = SubResource( 3 )
+
+[node name="greyGrid" type="MeshInstance"]
+mesh = SubResource( 1 )
+material/0 = SubResource( 4 )
+script = ExtResource( 1 )
