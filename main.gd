@@ -8,6 +8,7 @@ var selectedTile = 0
 
 var renderDis = 24
 var camLoc = Vector2()
+var preLoc = Vector2(1000000, 1000000)
 
 var terrain_entities = []
 var original_entities = []
@@ -24,6 +25,8 @@ var db = SQLite.new();
 var saved_hotbar = []
 
 var hidden = false
+
+var savedDB = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -73,7 +76,40 @@ func _ready():
 	reload_tile()
 
 func get_items(loc = Vector2()):
-	return db.fetch_array_with_args("SELECT * FROM terrainData WHERE terrainData.posX > ? and terrainData.posX < ? and terrainData.posZ > ? and terrainData.posZ < ?;", [loc.x-renderDis, loc.x+renderDis, loc.y-renderDis, loc.y+renderDis]);
+	var disLoc = Vector2(round((camLoc.x - preLoc.x)*10)/10, round((camLoc.y - preLoc.y)*10)/10)
+	var maX = 0
+	var miX = 0
+	var maY = 0
+	var miY = 0
+	
+	if sqrt(pow(disLoc.x, 2)) > renderDis or true:
+		maX = camLoc.x + renderDis
+		miX = camLoc.x - renderDis
+	elif disLoc.x > 0:
+		maX = camLoc.x + renderDis
+		miX = preLoc.x + renderDis
+	elif disLoc.x < 0:
+		maX = preLoc.x - renderDis
+		miX = camLoc.x - renderDis
+	else:
+		maX = PI
+		miX = PI
+	
+	if sqrt(pow(disLoc.y, 2)) > renderDis or true:
+		maY = camLoc.y + renderDis
+		miY = camLoc.y - renderDis
+	elif disLoc.y > 0:
+		maY = camLoc.y + renderDis
+		miY = preLoc.y + renderDis
+	elif disLoc.y < 0:
+		maX = preLoc.y - renderDis
+		miX = camLoc.y - renderDis
+	else:
+		maY = PI
+		miY = PI
+	
+	preLoc = camLoc
+	return db.fetch_array_with_args("SELECT * FROM terrainData WHERE terrainData.posX >= ? and terrainData.posX <= ? and terrainData.posZ >= ? and terrainData.posZ <= ?;", [miX, maX, miY, maY]);
 
 func update_hotbar():
 	if len(GV.hotbar) > 0:
@@ -111,7 +147,6 @@ func update_items(items):
 	var tempID = []
 	for item in items:
 		if !(item["ID"] in original_ids):
-			original_ids.append(item["ID"])
 			var Bposition = Vector3(item["posX"], item["posY"], item["posZ"])
 			var Bscale = Vector3(1, 1, 1)
 			
@@ -129,7 +164,6 @@ func update_items(items):
 					currentNum += l
 			
 			var Brot = Vector3(rotValues[0], rotValues[1], rotValues[2])
-			
 			var tile2create = GV.tiles[item["tileID"]][0].instance()
 			
 			self.add_child(tile2create)
@@ -140,33 +174,37 @@ func update_items(items):
 			original_entities.append(tile2create)
 		tempID.append(item["ID"])
 	
+	var camPRenderX = camLoc.x + renderDis
+	var camMRenderX = camLoc.x - renderDis
+	var camPRenderY = camLoc.y + renderDis
+	var camMRenderY = camLoc.y - renderDis
+	
 	for entity in terrain_entities:
 		if str(entity) != "[Deleted Object]":
-			if (entity.translation.x > camLoc.x + renderDis or entity.translation.x < camLoc.x - renderDis) or (entity.translation.z > camLoc.y + renderDis or entity.translation.z < camLoc.y - renderDis):
+			if (entity.translation.x > camPRenderX or entity.translation.x < camMRenderX) or (entity.translation.z > camPRenderY or entity.translation.z < camMRenderY):
 				terrain_entities.erase(entity)
 		else:
 			terrain_entities.erase(entity)
 			
 	for entity in original_entities:
 		if str(entity) != "[Deleted Object]":
-			if (entity.translation.x > camLoc.x + renderDis or entity.translation.x < camLoc.x - renderDis) or (entity.translation.z > camLoc.y + renderDis or entity.translation.z < camLoc.y - renderDis):
+			if (entity.translation.x > camPRenderX or entity.translation.x < camMRenderX) or (entity.translation.z > camPRenderY or entity.translation.z < camMRenderY):
 				entity.queue_free()
 				original_entities.erase(entity)
 		else:
 			original_entities.erase(entity)
 	
 	original_ids = tempID
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+ 
 func _process(delta):
-	if pow(camLoc.x - $Camera.translation.x, 2) > 3 or pow(camLoc.y - $Camera.translation.z, 2) > 3:
+	if pow(camLoc.x - $Camera.translation.x, 2) > 2 or pow(camLoc.y - $Camera.translation.z, 2) > 2:
 		camLoc = Vector2($Camera.translation.x, $Camera.translation.z)
 		update_items(get_items(camLoc))
 		$GUI/tileSelection/xCoordInput.placeholder_text = str(int($Camera.translation.x))
 		$GUI/tileSelection/yCoordInput.placeholder_text = str(int($Camera.translation.y))
 		$GUI/tileSelection/zCoordInput.placeholder_text = str(int($Camera.translation.z))
-		$y_collider.global_translate(Vector3(camLoc.x - $y_collider.translation.x, 0, camLoc.y - $y_collider.translation.z))
-		
+		#$y_collider.global_translate(Vector3(camLoc.x - $y_collider.translation.x, 0, camLoc.y - $y_collider.translation.z))
+	
 	if GV.hotbar != saved_hotbar:
 		update_hotbar()
 	if Input.is_action_just_pressed("menu"):
@@ -272,10 +310,6 @@ func _process(delta):
 	if Input.is_action_pressed("exit"):
 		db.close()
 		get_tree().quit()
-	
-	if Input.is_action_just_pressed("save"):
-		save()
-		$GUI/savePopupAnim.play("saved")
 
 func reload_tile():
 	var Bposition = currentBlock.translation
@@ -344,7 +378,7 @@ func break_tile():
 func save():
 	var add = []
 	var amt = len(terrain_entities)
-	
+
 	for x in original_entities:
 		if x in terrain_entities:
 			amt -= 1 
@@ -380,7 +414,6 @@ func save():
 	original_ids = []
 	for item in items: original_ids.append(item["ID"]);
 
-
 func _on_spaceInput_text_entered(new_text):
 	var dec = false
 	var error = false
@@ -394,7 +427,6 @@ func _on_spaceInput_text_entered(new_text):
 		boxDistance = float(new_text)
 	$GUI/tileSelection/spaceInput.text = ""
 	$GUI/tileSelection/spaceInput.placeholder_text = str(boxDistance)
-	
 
 func _on_renderInput_text_entered(new_text):
 	var dec = false
@@ -411,7 +443,6 @@ func _on_renderInput_text_entered(new_text):
 	$GUI/tileSelection/renderInput.text = ""
 	$GUI/tileSelection/renderInput.placeholder_text = str(renderDis)
 
-
 func _on_zCoordInput_text_entered(new_text):
 	var dec = false
 	var error = false
@@ -427,7 +458,6 @@ func _on_zCoordInput_text_entered(new_text):
 	$GUI/tileSelection/zCoordInput.text = ""
 	$GUI/tileSelection/zCoordInput.placeholder_text = str($Camera.translation.z)
 
-
 func _on_yCoordInput_text_entered(new_text):
 	var dec = false
 	var error = false
@@ -442,7 +472,6 @@ func _on_yCoordInput_text_entered(new_text):
 	
 	$GUI/tileSelection/yCoordInput.text = ""
 	$GUI/tileSelection/yCoordInput.placeholder_text = str($Camera.translation.y)
-
 
 func _on_xCoordInput_text_entered(new_text):
 	var dec = false
