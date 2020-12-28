@@ -23,3 +23,9 @@ onready var tiles = [
 [preload("res://tiles/cityTiles/CityStairsP2.tscn"), preload("res://assets/cityTiles/Icons/CityStairsP2.png"), "City Stairs P2"],
 [preload("res://tiles/cityTiles/CityStonePath.tscn"), preload("res://assets/cityTiles/Icons/CityStonePath.png"), "City Stone Path"]]
 var hotbar = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+func _process(delta):
+	if Input.is_action_just_pressed("world"):
+		get_tree().change_scene("res://worldEngine.tscn")
+	elif Input.is_action_just_pressed("entity"):
+		get_tree().change_scene("res://entityEngine.tscn")
