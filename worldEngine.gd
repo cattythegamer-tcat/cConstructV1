@@ -14,7 +14,6 @@ var terrain_entities = []
 var original_entities = []
 var original_ids = []
 
-onready var currentBlock = $currentBlock
 onready var tile = $currentBlock/tile
 
 # SQLite module
@@ -35,7 +34,7 @@ func _ready():
 	$GUI/tileSelection/zCoordInput.placeholder_text = str(int($Camera.translation.z))
 	camLoc = Vector2($Camera.translation.x, $Camera.translation.z)
 	# Open item database
-	db.open("user://terrain.db");
+	db.open("user://worldData.db");
 	
 	var query = 'CREATE TABLE IF NOT EXISTS "terrainData" ("ID" INTEGER UNIQUE, "posX" INTEGER, "posY" INTEGER, "posZ" INTEGER, "rotation" TEXT, "invert" INTEGER, "tileID" INTEGER, PRIMARY KEY("ID" AUTOINCREMENT));'
 	db.query(query)
@@ -111,37 +110,11 @@ func get_items(loc = Vector2()):
 	preLoc = camLoc
 	var dbb = db.fetch_array_with_args("SELECT * FROM terrainData WHERE terrainData.posX >= ? and terrainData.posX <= ? and terrainData.posZ >= ? and terrainData.posZ <= ?;", [miX, maX, miY, maY]);
 	return dbb
+
 func update_hotbar():
-	if len(GV.hotbar) > 0:
-		$GUI/hotbar/slot1/icon.texture = GV.tiles[GV.hotbar[0]][1]
-		$GUI/tileSelection/hotbar/slot1.icon = GV.tiles[GV.hotbar[0]][1]
-		if len(GV.hotbar) > 1:
-			$GUI/hotbar/slot2/icon.texture = GV.tiles[GV.hotbar[1]][1]
-			$GUI/tileSelection/hotbar/slot2.icon = GV.tiles[GV.hotbar[1]][1]
-			if len(GV.hotbar) > 2:
-				$GUI/hotbar/slot3/icon.texture = GV.tiles[GV.hotbar[2]][1]
-				$GUI/tileSelection/hotbar/slot3.icon = GV.tiles[GV.hotbar[2]][1]
-				if len(GV.hotbar) > 3:
-					$GUI/hotbar/slot4/icon.texture = GV.tiles[GV.hotbar[3]][1]
-					$GUI/tileSelection/hotbar/slot4.icon = GV.tiles[GV.hotbar[3]][1]
-					if len(GV.hotbar) > 4:
-						$GUI/hotbar/slot5/icon.texture = GV.tiles[GV.hotbar[4]][1]
-						$GUI/tileSelection/hotbar/slot5.icon = GV.tiles[GV.hotbar[4]][1]
-						if len(GV.hotbar) > 5:
-							$GUI/hotbar/slot6/icon.texture = GV.tiles[GV.hotbar[5]][1]
-							$GUI/tileSelection/hotbar/slot6.icon = GV.tiles[GV.hotbar[5]][1]
-							if len(GV.hotbar) > 6:
-								$GUI/hotbar/slot7/icon.texture = GV.tiles[GV.hotbar[6]][1]
-								$GUI/tileSelection/hotbar/slot7.icon = GV.tiles[GV.hotbar[6]][1]
-								if len(GV.hotbar) > 7:
-									$GUI/hotbar/slot8/icon.texture = GV.tiles[GV.hotbar[7]][1]
-									$GUI/tileSelection/hotbar/slot8.icon = GV.tiles[GV.hotbar[7]][1]
-									if len(GV.hotbar) > 8:
-										$GUI/hotbar/slot9/icon.texture = GV.tiles[GV.hotbar[8]][1]
-										$GUI/tileSelection/hotbar/slot9.icon = GV.tiles[GV.hotbar[8]][1]
-										if len(GV.hotbar) > 9:
-											$GUI/hotbar/slot0/icon.texture = GV.tiles[GV.hotbar[9]][1]
-											$GUI/tileSelection/hotbar/slot0.icon = GV.tiles[GV.hotbar[9]][1]
+	for slot in range(len(GV.hotbar)):
+		$GUI/hotbar.get_child(slot).get_child(0).texture = GV.tiles[GV.hotbar[slot]][1]
+		$GUI/tileSelection/hotbar.get_child(slot).icon = GV.tiles[GV.hotbar[slot]][1]
 
 func update_items(items):
 	var tempID = []
@@ -199,22 +172,17 @@ func update_items(items):
 func _process(delta):
 	if delta >= 0.0111112 or true:
 		$GUI/FPS.text = str(Engine.get_frames_per_second())
-	for x in range(10000000000):
-		var a
-		if currentBlock in terrain_entities:
-			a = true
-		else:
-			a = false
+
 	if pow(camLoc.x - $Camera.translation.x, 2) > 6 or pow(camLoc.y - $Camera.translation.z, 2) > 6:
 		camLoc = Vector2($Camera.translation.x, $Camera.translation.z)
 		update_items(get_items(camLoc))
 		$GUI/tileSelection/xCoordInput.placeholder_text = str(int($Camera.translation.x))
 		$GUI/tileSelection/yCoordInput.placeholder_text = str(int($Camera.translation.y))
 		$GUI/tileSelection/zCoordInput.placeholder_text = str(int($Camera.translation.z))
-		#$y_collider.global_translate(Vector3(camLoc.x - $y_collider.translation.x, 0, camLoc.y - $y_collider.translation.z))
 	
 	if GV.hotbar != saved_hotbar:
 		update_hotbar()
+	
 	if Input.is_action_just_pressed("menu"):
 		if GV.paused:
 			GV.paused = false
@@ -225,6 +193,7 @@ func _process(delta):
 			$GUI/tileSelection/xCoordInput.text = ""
 			$GUI/tileSelection/yCoordInput.text = ""
 			$GUI/tileSelection/zCoordInput.text = ""
+	
 	if Input.is_action_just_pressed("hide"):
 		if hidden: 
 			hidden = false
@@ -232,43 +201,20 @@ func _process(delta):
 		else:
 			hidden = true
 			tile.visible = false
+	
 	if GV.paused:
 		if !$GUI/tileSelection.visible:
 			$GUI/tileSelection.visible = true
 	else:
 		if $GUI/tileSelection.visible:
 			$GUI/tileSelection.visible = false
-		if Input.is_action_just_pressed("slot1") and len(GV.hotbar) > 0:
-			selectedTile = 0
-			reload_tile()
-		elif Input.is_action_just_pressed("slot2") and len(GV.hotbar) > 1:
-			selectedTile = 1
-			reload_tile()
-		elif Input.is_action_just_pressed("slot3") and len(GV.hotbar) > 2:
-			selectedTile = 2
-			reload_tile()
-		elif Input.is_action_just_pressed("slot4") and len(GV.hotbar) > 3:
-			selectedTile = 3
-			reload_tile()
-		elif Input.is_action_just_pressed("slot5") and len(GV.hotbar) > 4:
-			selectedTile = 4
-			reload_tile()
-		elif Input.is_action_just_pressed("slot6") and len(GV.hotbar) > 5:
-			selectedTile = 5
-			reload_tile()
-		elif Input.is_action_just_pressed("slot7") and len(GV.hotbar) > 6:
-			selectedTile = 6
-			reload_tile()
-		elif Input.is_action_just_pressed("slot8") and len(GV.hotbar) > 7:
-			selectedTile = 7
-			reload_tile()
-		elif Input.is_action_just_pressed("slot9") and len(GV.hotbar) > 8:
-			selectedTile = 8
-			reload_tile()
-		elif Input.is_action_just_pressed("slot0") and len(GV.hotbar) > 9:
-			selectedTile = 9
-			reload_tile()
 		
+		for slot in range(len(GV.hotbar)):
+			if slot == 9 and Input.is_action_just_pressed("slot0") or Input.is_action_just_pressed("slot" + str(slot + 1)):
+				selectedTile = slot
+				reload_tile()
+				break
+
 		shift = Input.is_action_pressed("shift")
 		cntr = Input.is_action_pressed("tab")
 	
@@ -277,50 +223,51 @@ func _process(delta):
 		if Input.is_action_just_released("scroll_down") and shift:
 			$y_collider.translate(Vector3(0, -boxDistance, 0))
 		
-		if Input.is_action_just_pressed("rotate_x") and !hidden:
-			if shift:
-				tile.rotate_x(deg2rad(-90))
-			else:
-				tile.rotate_x(deg2rad(90))
-			
-		if Input.is_action_just_pressed("rotate_y") and !hidden:
-			if shift:
-				tile.rotate_y(deg2rad(-90))
-			else:
-				tile.rotate_y(deg2rad(90))
-			
-		if Input.is_action_just_pressed("rotate_z") and !hidden:
-			if shift:
-				tile.rotate_z(deg2rad(-90))
-			else:
-				tile.rotate_z(deg2rad(90))
+		if !hidden:
+			if Input.is_action_just_pressed("rotate_x"):
+				if shift:
+					tile.rotate_x(deg2rad(-90))
+				else:
+					tile.rotate_x(deg2rad(90))
+				
+			if Input.is_action_just_pressed("rotate_y"):
+				if shift:
+					tile.rotate_y(deg2rad(-90))
+				else:
+					tile.rotate_y(deg2rad(90))
+				
+			if Input.is_action_just_pressed("rotate_z"):
+				if shift:
+					tile.rotate_z(deg2rad(-90))
+				else:
+					tile.rotate_z(deg2rad(90))
+		
+			if Input.is_action_just_pressed("invert"):
+				if tile.scale.z == -1:
+					tile.scale = Vector3(1, 1, 1)
+				else:
+					tile.scale = Vector3(-1, -1, -1)
+				
+			goTo = $Camera.goTo
+			goTo.x = round(goTo.x / boxDistance) * boxDistance
+			goTo.y = round(goTo.y / boxDistance) * boxDistance
+			goTo.z = round(goTo.z / boxDistance) * boxDistance
+		
+			if goTo != $currentBlock.translation:
+				$currentBlock.translate(goTo - $currentBlock.translation)
 	
-		if Input.is_action_just_pressed("invert") and !hidden:
-			if tile.scale.z == -1:
-				tile.scale = Vector3(1, 1, 1)
-			else:
-				tile.scale = Vector3(-1, -1, -1)
-			
-		goTo = $Camera.goTo
-		goTo.x = round(goTo.x / boxDistance) * boxDistance
-		goTo.y = round(goTo.y / boxDistance) * boxDistance
-		goTo.z = round(goTo.z / boxDistance) * boxDistance
-	
-		if goTo != currentBlock.translation:
-			currentBlock.translate(goTo - currentBlock.translation)
-	
-		if Input.is_action_just_pressed("place") and !hidden:
-			if cntr:
-				break_tile()
-			else:
-				place_tile()
+			if Input.is_action_just_pressed("place"):
+				if cntr:
+					break_tile()
+				else:
+					place_tile()
 		
 	if Input.is_action_pressed("exit"):
 		db.close()
 		get_tree().quit()
 
 func reload_tile():
-	var Bposition = currentBlock.translation
+	var Bposition = $currentBlock.translation
 	var Brot = tile.rotation_degrees
 	var Bscale = tile.scale
 	
@@ -328,36 +275,17 @@ func reload_tile():
 	tile = GV.tiles[GV.hotbar[selectedTile]][0].instance()
 	
 	tile = GV.tiles[GV.hotbar[selectedTile]][0].instance()
-	currentBlock.add_child(tile)
+	$currentBlock.add_child(tile)
 	tile.rotation_degrees = Brot
 	tile.scale = Bscale
 	
-	match selectedTile:
-		0:
-			$GUI/hotbar/slotSelections.play("slot1")
-		1:
-			$GUI/hotbar/slotSelections.play("slot2")
-		2:
-			$GUI/hotbar/slotSelections.play("slot3")
-		3:
-			$GUI/hotbar/slotSelections.play("slot4")
-		4:
-			$GUI/hotbar/slotSelections.play("slot5")
-		5:
-			$GUI/hotbar/slotSelections.play("slot6")
-		6:
-			$GUI/hotbar/slotSelections.play("slot7")
-		7:
-			$GUI/hotbar/slotSelections.play("slot8")
-		8:
-			$GUI/hotbar/slotSelections.play("slot9")
-		9:
-			$GUI/hotbar/slotSelections.play("slot0")
+	var animNames = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+	$GUI/hotbar/slotSelections.play("slot" + str(animNames[selectedTile]))
 	
 	$GUI/hotbar/name.text = GV.tiles[GV.hotbar[selectedTile]][2]
 
 func place_tile():
-	var Bposition = currentBlock.translation
+	var Bposition = $currentBlock.translation
 	var Brot = tile.rotation_degrees
 	var Bscale = tile.scale
 	
@@ -370,13 +298,13 @@ func place_tile():
 	tile.scale = Bscale
 	terrain_entities.append(tile)
 	tile = GV.tiles[GV.hotbar[selectedTile]][0].instance()
-	currentBlock.add_child(tile)
+	$currentBlock.add_child(tile)
 	tile.rotation_degrees = Brot
 	tile.scale = Bscale
 	save()
 
 func break_tile():
-	var Bpos = currentBlock.translation
+	var Bpos = $currentBlock.translation
 	for tl in terrain_entities:
 		if tl.translation.x == Bpos.x and tl.translation.z == Bpos.z:
 			tl.queue_free()

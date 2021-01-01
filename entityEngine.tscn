@@ -5,7 +5,7 @@
 [ext_resource path="res://camera.gd" type="Script" id=3]
 [ext_resource path="res://menu/blank.png" type="Texture" id=4]
 [ext_resource path="res://menu/arrow.png" type="Texture" id=5]
-[ext_resource path="res://displayedTiles.gd" type="Script" id=6]
+[ext_resource path="res://menu/displayedEntities.gd" type="Script" id=6]
 [ext_resource path="res://entityEngine.gd" type="Script" id=7]
 
 [sub_resource type="ProceduralSky" id=1]
@@ -25,36 +25,30 @@ fog_enabled = true
 fog_color = Color( 0.827451, 0.827451, 0.827451, 1 )
 fog_depth_end = 0.0
 
-[sub_resource type="CubeMesh" id=3]
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0, 0, 0 )
 
-[sub_resource type="Gradient" id=4]
-offsets = PoolRealArray( 0, 0.979592 )
-colors = PoolColorArray( 0, 0, 0, 1, 0.0429688, 0.775696, 1, 1 )
-
-[sub_resource type="GradientTexture" id=5]
-gradient = SubResource( 4 )
-
-[sub_resource type="SpatialMaterial" id=6]
-albedo_texture = SubResource( 5 )
-
-[sub_resource type="BoxShape" id=7]
+[sub_resource type="BoxShape" id=4]
 extents = Vector3( 1, 0.0039839, 1 )
 
-[sub_resource type="PlaneMesh" id=8]
+[sub_resource type="PlaneMesh" id=5]
 
-[sub_resource type="SpatialMaterial" id=9]
+[sub_resource type="SpatialMaterial" id=6]
 flags_transparent = true
+flags_unshaded = true
+flags_do_not_receive_shadows = true
+flags_disable_ambient_light = true
 params_cull_mode = 2
 albedo_color = Color( 1, 1, 1, 0.85098 )
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=7]
 size = 80
 outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 1 )
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=8]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("slot1:self_modulate")
@@ -177,7 +171,7 @@ tracks/9/keys = {
 "values": [ Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=9]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("slot1:self_modulate")
@@ -226,6 +220,375 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("slot5:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("slot6:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("slot7:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("slot8:self_modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("slot9:self_modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("slot0:self_modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("slot1:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("slot2:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("slot3:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("slot4:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("slot5:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("slot6:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("slot7:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("slot8:self_modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("slot9:self_modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("slot0:self_modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("slot1:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("slot2:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("slot3:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("slot4:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("slot5:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("slot6:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("slot7:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("slot8:self_modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("slot9:self_modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("slot0:self_modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("slot1:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("slot2:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("slot3:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("slot4:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("slot5:self_modulate")
@@ -324,7 +687,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Color( 0, 0, 0, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("slot3:self_modulate")
@@ -360,7 +723,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 0, 0, 0, 1 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("slot6:self_modulate")
@@ -459,7 +822,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Color( 0, 0, 0, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("slot4:self_modulate")
@@ -495,7 +858,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 0, 0, 0, 1 ) ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("slot7:self_modulate")
@@ -594,7 +957,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Color( 0, 0, 0, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("slot5:self_modulate")
@@ -630,7 +993,7 @@ tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 0, 0, 0, 1 ) ]
 }
 tracks/7/type = "value"
 tracks/7/path = NodePath("slot8:self_modulate")
@@ -729,7 +1092,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Color( 0, 0, 0, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("slot6:self_modulate")
@@ -765,7 +1128,7 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 0, 0, 0, 1 ) ]
 }
 tracks/8/type = "value"
 tracks/8/path = NodePath("slot9:self_modulate")
@@ -864,375 +1227,6 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Color( 0, 0, 0, 1 ) ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("slot7:self_modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("slot8:self_modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("slot9:self_modulate")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-tracks/9/type = "value"
-tracks/9/path = NodePath("slot0:self_modulate")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=18]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("slot1:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("slot2:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("slot3:self_modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("slot4:self_modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("slot5:self_modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("slot6:self_modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("slot7:self_modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 0, 0, 0, 1 ) ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("slot8:self_modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("slot9:self_modulate")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-tracks/9/type = "value"
-tracks/9/path = NodePath("slot0:self_modulate")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=19]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("slot1:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("slot2:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("slot3:self_modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("slot4:self_modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("slot5:self_modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("slot6:self_modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("slot7:self_modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("slot8:self_modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 0, 0, 0, 1 ) ]
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("slot9:self_modulate")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-tracks/9/type = "value"
-tracks/9/path = NodePath("slot0:self_modulate")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=20]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("slot1:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("slot2:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("slot3:self_modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("slot4:self_modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("slot5:self_modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("slot6:self_modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 tracks/6/type = "value"
@@ -1284,23 +1278,23 @@ tracks/9/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="DynamicFont" id=21]
+[sub_resource type="DynamicFont" id=18]
 use_filter = true
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=22]
+[sub_resource type="DynamicFont" id=19]
 size = 50
 outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=23]
+[sub_resource type="DynamicFont" id=20]
 size = 64
 use_filter = true
 font_data = ExtResource( 1 )
 
-[sub_resource type="Animation" id=24]
+[sub_resource type="Animation" id=21]
 length = 0.05
 step = 0.05
 tracks/0/type = "value"
@@ -1328,7 +1322,7 @@ tracks/1/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=25]
+[sub_resource type="Animation" id=22]
 length = 0.05
 step = 0.05
 tracks/0/type = "value"
@@ -1356,12 +1350,20 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="DynamicFont" id=26]
+[sub_resource type="DynamicFont" id=23]
 size = 32
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 1 )
+
+[sub_resource type="SphereShape" id=24]
+
+[sub_resource type="SphereMesh" id=25]
+
+[sub_resource type="SpatialMaterial" id=26]
+flags_transparent = true
+albedo_color = Color( 1, 0.301961, 0.301961, 0.262745 )
 
 [node name="entityEngine" type="Spatial"]
 script = ExtResource( 7 )
@@ -1376,11 +1378,14 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
 
-[node name="currentBlock" type="Spatial" parent="."]
+[node name="currentEntity" type="Spatial" parent="."]
 
-[node name="tile" type="MeshInstance" parent="currentBlock"]
-mesh = SubResource( 3 )
-material/0 = SubResource( 6 )
+[node name="entity" type="RigidBody" parent="currentEntity"]
+
+[node name="mesh" type="MeshInstance" parent="currentEntity/entity"]
+
+[node name="collision" type="CollisionShape" parent="currentEntity/entity"]
+shape = SubResource( 3 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.10014, 0 )
@@ -1392,18 +1397,17 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0
 enabled = true
 cast_to = Vector3( 0, -75, 0 )
 collide_with_areas = true
-collide_with_bodies = false
 
 [node name="y_collider" type="Area" parent="."]
 transform = Transform( 500, 0, 0, 0, 1, 0, 0, 0, 500, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="y_collider"]
-shape = SubResource( 7 )
+shape = SubResource( 4 )
 
 [node name="MeshInstance" type="MeshInstance" parent="y_collider"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.01, 0 )
-mesh = SubResource( 8 )
-material/0 = SubResource( 9 )
+mesh = SubResource( 5 )
+material/0 = SubResource( 6 )
 
 [node name="GUI" type="Control" parent="."]
 margin_right = 40.0
@@ -1516,7 +1520,7 @@ margin_top = 408.0
 margin_right = 1623.0
 margin_bottom = 688.0
 rect_scale = Vector2( 0.2, 0.2 )
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 7 )
 text = "TEMPORARY NAME"
 align = 2
 autowrap = true
@@ -1529,7 +1533,7 @@ margin_left = 448.0
 margin_right = 1088.0
 margin_bottom = 100.0
 rect_scale = Vector2( 0.2, 0.2 )
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 7 )
 text = "Entity Engine"
 align = 1
 autowrap = true
@@ -1538,18 +1542,19 @@ __meta__ = {
 }
 
 [node name="slotSelections" type="AnimationPlayer" parent="GUI/hotbar"]
-anims/slot0 = SubResource( 11 )
-anims/slot1 = SubResource( 12 )
-anims/slot2 = SubResource( 13 )
-anims/slot3 = SubResource( 14 )
-anims/slot4 = SubResource( 15 )
-anims/slot5 = SubResource( 16 )
-anims/slot6 = SubResource( 17 )
-anims/slot7 = SubResource( 18 )
-anims/slot8 = SubResource( 19 )
-anims/slot9 = SubResource( 20 )
+anims/slot0 = SubResource( 8 )
+anims/slot1 = SubResource( 9 )
+anims/slot2 = SubResource( 10 )
+anims/slot3 = SubResource( 11 )
+anims/slot4 = SubResource( 12 )
+anims/slot5 = SubResource( 13 )
+anims/slot6 = SubResource( 14 )
+anims/slot7 = SubResource( 15 )
+anims/slot8 = SubResource( 16 )
+anims/slot9 = SubResource( 17 )
 
 [node name="tileSelection" type="Control" parent="GUI"]
+visible = false
 margin_left = 507.812
 margin_top = 195.998
 margin_right = 547.812
@@ -1600,7 +1605,7 @@ margin_left = 428.188
 margin_top = 283.602
 margin_right = 502.188
 margin_bottom = 307.602
-custom_fonts/font = SubResource( 21 )
+custom_fonts/font = SubResource( 18 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1610,7 +1615,7 @@ margin_left = 427.624
 margin_top = 324.402
 margin_right = 499.624
 margin_bottom = 355.402
-custom_fonts/font = SubResource( 21 )
+custom_fonts/font = SubResource( 18 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1620,7 +1625,7 @@ margin_left = 442.0
 margin_top = 372.402
 margin_right = 500.0
 margin_bottom = 403.402
-custom_fonts/font = SubResource( 21 )
+custom_fonts/font = SubResource( 18 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1630,7 +1635,7 @@ margin_left = 364.188
 margin_top = 372.0
 margin_right = 422.188
 margin_bottom = 403.0
-custom_fonts/font = SubResource( 21 )
+custom_fonts/font = SubResource( 18 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1640,7 +1645,7 @@ margin_left = 284.188
 margin_top = 372.402
 margin_right = 342.188
 margin_bottom = 403.402
-custom_fonts/font = SubResource( 21 )
+custom_fonts/font = SubResource( 18 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1651,7 +1656,7 @@ margin_top = 268.002
 margin_right = 859.188
 margin_bottom = 368.002
 rect_scale = Vector2( 0.2, 0.2 )
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 7 )
 text = "Space"
 align = 2
 valign = 2
@@ -1666,7 +1671,7 @@ margin_top = 307.602
 margin_right = 858.188
 margin_bottom = 407.602
 rect_scale = Vector2( 0.2, 0.2 )
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 7 )
 text = "Render"
 align = 2
 valign = 2
@@ -1681,7 +1686,7 @@ margin_top = 356.002
 margin_right = 858.188
 margin_bottom = 456.002
 rect_scale = Vector2( 0.2, 0.2 )
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 7 )
 text = "Coords"
 align = 2
 valign = 2
@@ -1696,7 +1701,7 @@ margin_top = 364.002
 margin_right = 357.188
 margin_bottom = 464.002
 rect_scale = Vector2( 0.2, 0.2 )
-custom_fonts/font = SubResource( 22 )
+custom_fonts/font = SubResource( 19 )
 text = "X"
 align = 1
 valign = 1
@@ -1711,7 +1716,7 @@ margin_top = 364.002
 margin_right = 437.188
 margin_bottom = 464.002
 rect_scale = Vector2( 0.2, 0.2 )
-custom_fonts/font = SubResource( 22 )
+custom_fonts/font = SubResource( 19 )
 text = "Y"
 align = 1
 valign = 1
@@ -1726,7 +1731,7 @@ margin_top = 364.002
 margin_right = 517.188
 margin_bottom = 464.002
 rect_scale = Vector2( 0.2, 0.2 )
-custom_fonts/font = SubResource( 22 )
+custom_fonts/font = SubResource( 19 )
 text = "Z"
 align = 1
 valign = 1
@@ -1751,7 +1756,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="displayedTiles" type="Control" parent="GUI/tileSelection"]
+[node name="displayedEntities" type="Control" parent="GUI/tileSelection"]
 margin_left = -155.812
 margin_top = -139.998
 margin_right = -115.812
@@ -1761,32 +1766,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="tile1" type="Node2D" parent="GUI/tileSelection/displayedTiles"]
+[node name="tile1" type="Node2D" parent="GUI/tileSelection/displayedEntities"]
 position = Vector2( -336.188, 40 )
 
-[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile1"]
+[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile1"]
 self_modulate = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
 position = Vector2( 139.906, 8.00047 )
 scale = Vector2( 280.188, 15.9997 )
 texture = ExtResource( 4 )
 
-[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedTiles/tile1"]
+[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedEntities/tile1"]
 margin_left = 8.0
 margin_right = 1328.0
 margin_bottom = 82.0
 rect_scale = Vector2( 0.2, 0.2 )
-custom_fonts/normal_font = SubResource( 23 )
+custom_fonts/normal_font = SubResource( 20 )
 fit_content_height = true
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile1"]
+[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile1"]
 position = Vector2( 296, 8 )
 scale = Vector2( 2, 1.99992 )
 
-[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedTiles/tile1"]
+[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedEntities/tile1"]
 margin_left = 0.187744
 margin_top = 0.00062561
 margin_right = 304.188
@@ -1797,32 +1802,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="tile2" type="Node2D" parent="GUI/tileSelection/displayedTiles"]
+[node name="tile2" type="Node2D" parent="GUI/tileSelection/displayedEntities"]
 position = Vector2( -336.375, 64.0003 )
 
-[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile2"]
+[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile2"]
 self_modulate = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
 position = Vector2( 139.906, 8.00047 )
 scale = Vector2( 280.188, 15.9997 )
 texture = ExtResource( 4 )
 
-[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedTiles/tile2"]
+[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedEntities/tile2"]
 margin_left = 8.0
 margin_right = 1328.0
 margin_bottom = 82.0
 rect_scale = Vector2( 0.2, 0.2 )
-custom_fonts/normal_font = SubResource( 23 )
+custom_fonts/normal_font = SubResource( 20 )
 fit_content_height = true
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile2"]
+[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile2"]
 position = Vector2( 296, 8 )
 scale = Vector2( 2, 1.99992 )
 
-[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedTiles/tile2"]
+[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedEntities/tile2"]
 margin_right = 304.0
 margin_bottom = 20.0
 rect_scale = Vector2( 1, 0.8 )
@@ -1831,32 +1836,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="tile3" type="Node2D" parent="GUI/tileSelection/displayedTiles"]
+[node name="tile3" type="Node2D" parent="GUI/tileSelection/displayedEntities"]
 position = Vector2( -336, 88.0003 )
 
-[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile3"]
+[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile3"]
 self_modulate = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
 position = Vector2( 139.906, 8.00047 )
 scale = Vector2( 280.188, 15.9997 )
 texture = ExtResource( 4 )
 
-[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedTiles/tile3"]
+[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedEntities/tile3"]
 margin_left = 8.0
 margin_right = 1328.0
 margin_bottom = 82.0
 rect_scale = Vector2( 0.2, 0.2 )
-custom_fonts/normal_font = SubResource( 23 )
+custom_fonts/normal_font = SubResource( 20 )
 fit_content_height = true
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile3"]
+[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile3"]
 position = Vector2( 296, 8 )
 scale = Vector2( 2, 1.99992 )
 
-[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedTiles/tile3"]
+[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedEntities/tile3"]
 margin_right = 304.0
 margin_bottom = 20.0
 rect_scale = Vector2( 1, 0.8 )
@@ -1865,32 +1870,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="tile4" type="Node2D" parent="GUI/tileSelection/displayedTiles"]
+[node name="tile4" type="Node2D" parent="GUI/tileSelection/displayedEntities"]
 position = Vector2( -336, 112 )
 
-[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile4"]
+[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile4"]
 self_modulate = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
 position = Vector2( 139.906, 8.00047 )
 scale = Vector2( 280.188, 15.9997 )
 texture = ExtResource( 4 )
 
-[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedTiles/tile4"]
+[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedEntities/tile4"]
 margin_left = 8.0
 margin_right = 1328.0
 margin_bottom = 82.0
 rect_scale = Vector2( 0.2, 0.2 )
-custom_fonts/normal_font = SubResource( 23 )
+custom_fonts/normal_font = SubResource( 20 )
 fit_content_height = true
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile4"]
+[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile4"]
 position = Vector2( 296, 8 )
 scale = Vector2( 2, 1.99992 )
 
-[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedTiles/tile4"]
+[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedEntities/tile4"]
 margin_right = 304.0
 margin_bottom = 20.0
 rect_scale = Vector2( 1, 0.8 )
@@ -1899,32 +1904,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="tile5" type="Node2D" parent="GUI/tileSelection/displayedTiles"]
+[node name="tile5" type="Node2D" parent="GUI/tileSelection/displayedEntities"]
 position = Vector2( -336.375, 136 )
 
-[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile5"]
+[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile5"]
 self_modulate = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
 position = Vector2( 139.906, 8.00047 )
 scale = Vector2( 280.188, 15.9997 )
 texture = ExtResource( 4 )
 
-[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedTiles/tile5"]
+[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedEntities/tile5"]
 margin_left = 8.0
 margin_right = 1328.0
 margin_bottom = 82.0
 rect_scale = Vector2( 0.2, 0.2 )
-custom_fonts/normal_font = SubResource( 23 )
+custom_fonts/normal_font = SubResource( 20 )
 fit_content_height = true
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile5"]
+[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile5"]
 position = Vector2( 296, 8 )
 scale = Vector2( 2, 1.99992 )
 
-[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedTiles/tile5"]
+[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedEntities/tile5"]
 margin_right = 304.0
 margin_bottom = 20.0
 rect_scale = Vector2( 1, 0.8 )
@@ -1933,32 +1938,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="tile6" type="Node2D" parent="GUI/tileSelection/displayedTiles"]
+[node name="tile6" type="Node2D" parent="GUI/tileSelection/displayedEntities"]
 position = Vector2( -336.563, 160 )
 
-[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile6"]
+[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile6"]
 self_modulate = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
 position = Vector2( 139.906, 8.00047 )
 scale = Vector2( 280.188, 15.9997 )
 texture = ExtResource( 4 )
 
-[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedTiles/tile6"]
+[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedEntities/tile6"]
 margin_left = 8.0
 margin_right = 1328.0
 margin_bottom = 82.0
 rect_scale = Vector2( 0.2, 0.2 )
-custom_fonts/normal_font = SubResource( 23 )
+custom_fonts/normal_font = SubResource( 20 )
 fit_content_height = true
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile6"]
+[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile6"]
 position = Vector2( 296, 8 )
 scale = Vector2( 2, 1.99992 )
 
-[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedTiles/tile6"]
+[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedEntities/tile6"]
 margin_right = 304.0
 margin_bottom = 20.0
 rect_scale = Vector2( 1, 0.8 )
@@ -1967,32 +1972,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="tile7" type="Node2D" parent="GUI/tileSelection/displayedTiles"]
+[node name="tile7" type="Node2D" parent="GUI/tileSelection/displayedEntities"]
 position = Vector2( -336.563, 184 )
 
-[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile7"]
+[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile7"]
 self_modulate = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
 position = Vector2( 139.906, 8.00047 )
 scale = Vector2( 280.188, 15.9997 )
 texture = ExtResource( 4 )
 
-[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedTiles/tile7"]
+[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedEntities/tile7"]
 margin_left = 8.0
 margin_right = 1328.0
 margin_bottom = 82.0
 rect_scale = Vector2( 0.2, 0.2 )
-custom_fonts/normal_font = SubResource( 23 )
+custom_fonts/normal_font = SubResource( 20 )
 fit_content_height = true
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile7"]
+[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile7"]
 position = Vector2( 296, 8 )
 scale = Vector2( 2, 1.99992 )
 
-[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedTiles/tile7"]
+[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedEntities/tile7"]
 margin_right = 304.0
 margin_bottom = 20.0
 rect_scale = Vector2( 1, 0.8 )
@@ -2001,32 +2006,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="tile8" type="Node2D" parent="GUI/tileSelection/displayedTiles"]
+[node name="tile8" type="Node2D" parent="GUI/tileSelection/displayedEntities"]
 position = Vector2( -336.751, 208 )
 
-[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile8"]
+[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile8"]
 self_modulate = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
 position = Vector2( 139.906, 8.00047 )
 scale = Vector2( 280.188, 15.9997 )
 texture = ExtResource( 4 )
 
-[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedTiles/tile8"]
+[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedEntities/tile8"]
 margin_left = 8.0
 margin_right = 1328.0
 margin_bottom = 82.0
 rect_scale = Vector2( 0.2, 0.2 )
-custom_fonts/normal_font = SubResource( 23 )
+custom_fonts/normal_font = SubResource( 20 )
 fit_content_height = true
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile8"]
+[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile8"]
 position = Vector2( 296, 8 )
 scale = Vector2( 2, 1.99992 )
 
-[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedTiles/tile8"]
+[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedEntities/tile8"]
 margin_right = 304.0
 margin_bottom = 20.0
 rect_scale = Vector2( 1, 0.8 )
@@ -2035,32 +2040,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="tile9" type="Node2D" parent="GUI/tileSelection/displayedTiles"]
+[node name="tile9" type="Node2D" parent="GUI/tileSelection/displayedEntities"]
 position = Vector2( -336.751, 232 )
 
-[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile9"]
+[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile9"]
 self_modulate = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
 position = Vector2( 139.906, 8.00047 )
 scale = Vector2( 280.188, 15.9997 )
 texture = ExtResource( 4 )
 
-[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedTiles/tile9"]
+[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedEntities/tile9"]
 margin_left = 8.0
 margin_right = 1328.0
 margin_bottom = 82.0
 rect_scale = Vector2( 0.2, 0.2 )
-custom_fonts/normal_font = SubResource( 23 )
+custom_fonts/normal_font = SubResource( 20 )
 fit_content_height = true
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile9"]
+[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile9"]
 position = Vector2( 296, 8 )
 scale = Vector2( 2, 1.99992 )
 
-[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedTiles/tile9"]
+[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedEntities/tile9"]
 margin_right = 304.0
 margin_bottom = 20.0
 rect_scale = Vector2( 1, 0.8 )
@@ -2069,32 +2074,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="tile10" type="Node2D" parent="GUI/tileSelection/displayedTiles"]
+[node name="tile10" type="Node2D" parent="GUI/tileSelection/displayedEntities"]
 position = Vector2( -336.939, 256 )
 
-[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile10"]
+[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile10"]
 self_modulate = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
 position = Vector2( 139.906, 8.00047 )
 scale = Vector2( 280.188, 15.9997 )
 texture = ExtResource( 4 )
 
-[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedTiles/tile10"]
+[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedEntities/tile10"]
 margin_left = 8.0
 margin_right = 1328.0
 margin_bottom = 82.0
 rect_scale = Vector2( 0.2, 0.2 )
-custom_fonts/normal_font = SubResource( 23 )
+custom_fonts/normal_font = SubResource( 20 )
 fit_content_height = true
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile10"]
+[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile10"]
 position = Vector2( 296, 8 )
 scale = Vector2( 2, 1.99992 )
 
-[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedTiles/tile10"]
+[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedEntities/tile10"]
 margin_right = 304.0
 margin_bottom = 20.0
 rect_scale = Vector2( 1, 0.8 )
@@ -2103,32 +2108,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="tile11" type="Node2D" parent="GUI/tileSelection/displayedTiles"]
+[node name="tile11" type="Node2D" parent="GUI/tileSelection/displayedEntities"]
 position = Vector2( -336, 280 )
 
-[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile11"]
+[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile11"]
 self_modulate = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
 position = Vector2( 139.906, 8.00047 )
 scale = Vector2( 280.188, 15.9997 )
 texture = ExtResource( 4 )
 
-[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedTiles/tile11"]
+[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedEntities/tile11"]
 margin_left = 8.0
 margin_right = 1328.0
 margin_bottom = 82.0
 rect_scale = Vector2( 0.2, 0.2 )
-custom_fonts/normal_font = SubResource( 23 )
+custom_fonts/normal_font = SubResource( 20 )
 fit_content_height = true
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile11"]
+[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile11"]
 position = Vector2( 296, 8 )
 scale = Vector2( 2, 1.99992 )
 
-[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedTiles/tile11"]
+[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedEntities/tile11"]
 margin_right = 304.0
 margin_bottom = 20.0
 rect_scale = Vector2( 1, 0.8 )
@@ -2137,32 +2142,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="tile12" type="Node2D" parent="GUI/tileSelection/displayedTiles"]
+[node name="tile12" type="Node2D" parent="GUI/tileSelection/displayedEntities"]
 position = Vector2( -336, 304 )
 
-[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile12"]
+[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile12"]
 self_modulate = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
 position = Vector2( 139.906, 8.00047 )
 scale = Vector2( 280.188, 15.9997 )
 texture = ExtResource( 4 )
 
-[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedTiles/tile12"]
+[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedEntities/tile12"]
 margin_left = 8.0
 margin_right = 1328.0
 margin_bottom = 82.0
 rect_scale = Vector2( 0.2, 0.2 )
-custom_fonts/normal_font = SubResource( 23 )
+custom_fonts/normal_font = SubResource( 20 )
 fit_content_height = true
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile12"]
+[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile12"]
 position = Vector2( 296, 8 )
 scale = Vector2( 2, 1.99992 )
 
-[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedTiles/tile12"]
+[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedEntities/tile12"]
 margin_right = 304.0
 margin_bottom = 20.0
 rect_scale = Vector2( 1, 0.8 )
@@ -2171,32 +2176,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="tile13" type="Node2D" parent="GUI/tileSelection/displayedTiles"]
+[node name="tile13" type="Node2D" parent="GUI/tileSelection/displayedEntities"]
 position = Vector2( -336, 328 )
 
-[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile13"]
+[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile13"]
 self_modulate = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
 position = Vector2( 139.906, 8.00047 )
 scale = Vector2( 280.188, 15.9997 )
 texture = ExtResource( 4 )
 
-[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedTiles/tile13"]
+[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedEntities/tile13"]
 margin_left = 8.0
 margin_right = 1328.0
 margin_bottom = 82.0
 rect_scale = Vector2( 0.2, 0.2 )
-custom_fonts/normal_font = SubResource( 23 )
+custom_fonts/normal_font = SubResource( 20 )
 fit_content_height = true
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile13"]
+[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile13"]
 position = Vector2( 296, 8 )
 scale = Vector2( 2, 1.99992 )
 
-[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedTiles/tile13"]
+[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedEntities/tile13"]
 margin_right = 304.0
 margin_bottom = 20.0
 rect_scale = Vector2( 1, 0.8 )
@@ -2205,32 +2210,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="tile14" type="Node2D" parent="GUI/tileSelection/displayedTiles"]
+[node name="tile14" type="Node2D" parent="GUI/tileSelection/displayedEntities"]
 position = Vector2( -336.939, 352 )
 
-[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile14"]
+[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile14"]
 self_modulate = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
 position = Vector2( 139.906, 8.00047 )
 scale = Vector2( 280.188, 15.9997 )
 texture = ExtResource( 4 )
 
-[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedTiles/tile14"]
+[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedEntities/tile14"]
 margin_left = 8.0
 margin_right = 1328.0
 margin_bottom = 82.0
 rect_scale = Vector2( 0.2, 0.2 )
-custom_fonts/normal_font = SubResource( 23 )
+custom_fonts/normal_font = SubResource( 20 )
 fit_content_height = true
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile14"]
+[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile14"]
 position = Vector2( 296, 8 )
 scale = Vector2( 2, 1.99992 )
 
-[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedTiles/tile14"]
+[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedEntities/tile14"]
 margin_right = 304.0
 margin_bottom = 20.0
 rect_scale = Vector2( 1, 0.8 )
@@ -2239,32 +2244,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="tile15" type="Node2D" parent="GUI/tileSelection/displayedTiles"]
+[node name="tile15" type="Node2D" parent="GUI/tileSelection/displayedEntities"]
 position = Vector2( -336.375, 376 )
 
-[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile15"]
+[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile15"]
 self_modulate = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
 position = Vector2( 139.906, 8.00047 )
 scale = Vector2( 280.188, 15.9997 )
 texture = ExtResource( 4 )
 
-[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedTiles/tile15"]
+[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedEntities/tile15"]
 margin_left = 8.0
 margin_right = 1328.0
 margin_bottom = 82.0
 rect_scale = Vector2( 0.2, 0.2 )
-custom_fonts/normal_font = SubResource( 23 )
+custom_fonts/normal_font = SubResource( 20 )
 fit_content_height = true
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile15"]
+[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile15"]
 position = Vector2( 296, 8 )
 scale = Vector2( 2, 1.99992 )
 
-[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedTiles/tile15"]
+[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedEntities/tile15"]
 margin_right = 304.0
 margin_bottom = 20.0
 rect_scale = Vector2( 1, 0.8 )
@@ -2273,32 +2278,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="tile16" type="Node2D" parent="GUI/tileSelection/displayedTiles"]
+[node name="tile16" type="Node2D" parent="GUI/tileSelection/displayedEntities"]
 position = Vector2( -336.375, 400 )
 
-[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile16"]
+[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile16"]
 self_modulate = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
 position = Vector2( 139.906, 8.00047 )
 scale = Vector2( 280.188, 15.9997 )
 texture = ExtResource( 4 )
 
-[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedTiles/tile16"]
+[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedEntities/tile16"]
 margin_left = 8.0
 margin_right = 1328.0
 margin_bottom = 82.0
 rect_scale = Vector2( 0.2, 0.2 )
-custom_fonts/normal_font = SubResource( 23 )
+custom_fonts/normal_font = SubResource( 20 )
 fit_content_height = true
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile16"]
+[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile16"]
 position = Vector2( 296, 8 )
 scale = Vector2( 2, 1.99992 )
 
-[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedTiles/tile16"]
+[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedEntities/tile16"]
 margin_right = 304.0
 margin_bottom = 20.0
 rect_scale = Vector2( 1, 0.8 )
@@ -2307,32 +2312,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="tile17" type="Node2D" parent="GUI/tileSelection/displayedTiles"]
+[node name="tile17" type="Node2D" parent="GUI/tileSelection/displayedEntities"]
 position = Vector2( -336, 424 )
 
-[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile17"]
+[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile17"]
 self_modulate = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
 position = Vector2( 139.906, 8.00047 )
 scale = Vector2( 280.188, 15.9997 )
 texture = ExtResource( 4 )
 
-[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedTiles/tile17"]
+[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedEntities/tile17"]
 margin_left = 8.0
 margin_right = 1328.0
 margin_bottom = 82.0
 rect_scale = Vector2( 0.2, 0.2 )
-custom_fonts/normal_font = SubResource( 23 )
+custom_fonts/normal_font = SubResource( 20 )
 fit_content_height = true
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile17"]
+[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile17"]
 position = Vector2( 296, 8 )
 scale = Vector2( 2, 1.99992 )
 
-[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedTiles/tile17"]
+[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedEntities/tile17"]
 margin_right = 304.0
 margin_bottom = 20.0
 rect_scale = Vector2( 1, 0.8 )
@@ -2341,32 +2346,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="tile18" type="Node2D" parent="GUI/tileSelection/displayedTiles"]
+[node name="tile18" type="Node2D" parent="GUI/tileSelection/displayedEntities"]
 position = Vector2( -336, 448 )
 
-[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile18"]
+[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile18"]
 self_modulate = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
 position = Vector2( 139.906, 8.00047 )
 scale = Vector2( 280.188, 15.9997 )
 texture = ExtResource( 4 )
 
-[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedTiles/tile18"]
+[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedEntities/tile18"]
 margin_left = 8.0
 margin_right = 1328.0
 margin_bottom = 82.0
 rect_scale = Vector2( 0.2, 0.2 )
-custom_fonts/normal_font = SubResource( 23 )
+custom_fonts/normal_font = SubResource( 20 )
 fit_content_height = true
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile18"]
+[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile18"]
 position = Vector2( 296, 8 )
 scale = Vector2( 2, 1.99992 )
 
-[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedTiles/tile18"]
+[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedEntities/tile18"]
 margin_right = 304.0
 margin_bottom = 20.0
 rect_scale = Vector2( 1, 0.8 )
@@ -2375,32 +2380,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="tile19" type="Node2D" parent="GUI/tileSelection/displayedTiles"]
+[node name="tile19" type="Node2D" parent="GUI/tileSelection/displayedEntities"]
 position = Vector2( -336, 472 )
 
-[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile19"]
+[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile19"]
 self_modulate = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
 position = Vector2( 139.906, 8.00047 )
 scale = Vector2( 280.188, 15.9997 )
 texture = ExtResource( 4 )
 
-[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedTiles/tile19"]
+[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedEntities/tile19"]
 margin_left = 8.0
 margin_right = 1328.0
 margin_bottom = 82.0
 rect_scale = Vector2( 0.2, 0.2 )
-custom_fonts/normal_font = SubResource( 23 )
+custom_fonts/normal_font = SubResource( 20 )
 fit_content_height = true
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile19"]
+[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile19"]
 position = Vector2( 296, 8 )
 scale = Vector2( 2, 1.99992 )
 
-[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedTiles/tile19"]
+[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedEntities/tile19"]
 margin_right = 304.0
 margin_bottom = 20.0
 rect_scale = Vector2( 1, 0.8 )
@@ -2409,32 +2414,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="tile20" type="Node2D" parent="GUI/tileSelection/displayedTiles"]
+[node name="tile20" type="Node2D" parent="GUI/tileSelection/displayedEntities"]
 position = Vector2( -336, 496 )
 
-[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile20"]
+[node name="textBackground" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile20"]
 self_modulate = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
 position = Vector2( 139.906, 8.00047 )
 scale = Vector2( 280.188, 15.9997 )
 texture = ExtResource( 4 )
 
-[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedTiles/tile20"]
+[node name="name" type="RichTextLabel" parent="GUI/tileSelection/displayedEntities/tile20"]
 margin_left = 8.0
 margin_right = 1328.0
 margin_bottom = 82.0
 rect_scale = Vector2( 0.2, 0.2 )
-custom_fonts/normal_font = SubResource( 23 )
+custom_fonts/normal_font = SubResource( 20 )
 fit_content_height = true
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedTiles/tile20"]
+[node name="icon" type="Sprite" parent="GUI/tileSelection/displayedEntities/tile20"]
 position = Vector2( 296, 8 )
 scale = Vector2( 2, 1.99992 )
 
-[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedTiles/tile20"]
+[node name="selectButton" type="Button" parent="GUI/tileSelection/displayedEntities/tile20"]
 margin_right = 304.0
 margin_bottom = 20.0
 rect_scale = Vector2( 1, 0.8 )
@@ -2443,9 +2448,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="buttonInteractions" type="AnimationPlayer" parent="GUI/tileSelection/displayedTiles"]
-anims/greyBoth = SubResource( 24 )
-anims/greyTopButton = SubResource( 25 )
+[node name="buttonInteractions" type="AnimationPlayer" parent="GUI/tileSelection/displayedEntities"]
+anims/greyBoth = SubResource( 21 )
+anims/greyTopButton = SubResource( 22 )
 
 [node name="hotbar" type="Node2D" parent="GUI/tileSelection"]
 position = Vector2( -115.812, 140.002 )
@@ -2470,7 +2475,7 @@ margin_left = 32.0
 margin_right = 64.0
 margin_bottom = 64.0
 rect_scale = Vector2( 0.5, 0.5 )
-custom_fonts/font = SubResource( 26 )
+custom_fonts/font = SubResource( 23 )
 text = "1"
 valign = 1
 __meta__ = {
@@ -2497,7 +2502,7 @@ margin_left = 32.0
 margin_right = 64.0
 margin_bottom = 64.0
 rect_scale = Vector2( 0.5, 0.5 )
-custom_fonts/font = SubResource( 26 )
+custom_fonts/font = SubResource( 23 )
 text = "2"
 valign = 1
 __meta__ = {
@@ -2524,7 +2529,7 @@ margin_left = 32.0
 margin_right = 64.0
 margin_bottom = 64.0
 rect_scale = Vector2( 0.5, 0.5 )
-custom_fonts/font = SubResource( 26 )
+custom_fonts/font = SubResource( 23 )
 text = "3"
 valign = 1
 __meta__ = {
@@ -2551,7 +2556,7 @@ margin_left = 32.0
 margin_right = 64.0
 margin_bottom = 64.0
 rect_scale = Vector2( 0.5, 0.5 )
-custom_fonts/font = SubResource( 26 )
+custom_fonts/font = SubResource( 23 )
 text = "4"
 valign = 1
 __meta__ = {
@@ -2578,7 +2583,7 @@ margin_left = 32.0
 margin_right = 64.0
 margin_bottom = 64.0
 rect_scale = Vector2( 0.5, 0.5 )
-custom_fonts/font = SubResource( 26 )
+custom_fonts/font = SubResource( 23 )
 text = "5"
 valign = 1
 __meta__ = {
@@ -2605,7 +2610,7 @@ margin_left = 32.0
 margin_right = 64.0
 margin_bottom = 64.0
 rect_scale = Vector2( 0.5, 0.5 )
-custom_fonts/font = SubResource( 26 )
+custom_fonts/font = SubResource( 23 )
 text = "6"
 valign = 1
 __meta__ = {
@@ -2632,7 +2637,7 @@ margin_left = 32.0
 margin_right = 64.0
 margin_bottom = 64.0
 rect_scale = Vector2( 0.5, 0.5 )
-custom_fonts/font = SubResource( 26 )
+custom_fonts/font = SubResource( 23 )
 text = "7"
 valign = 1
 __meta__ = {
@@ -2659,7 +2664,7 @@ margin_left = 32.0
 margin_right = 64.0
 margin_bottom = 64.0
 rect_scale = Vector2( 0.5, 0.5 )
-custom_fonts/font = SubResource( 26 )
+custom_fonts/font = SubResource( 23 )
 text = "8"
 valign = 1
 __meta__ = {
@@ -2686,7 +2691,7 @@ margin_left = 32.0
 margin_right = 64.0
 margin_bottom = 64.0
 rect_scale = Vector2( 0.5, 0.5 )
-custom_fonts/font = SubResource( 26 )
+custom_fonts/font = SubResource( 23 )
 text = "9"
 valign = 1
 __meta__ = {
@@ -2713,47 +2718,60 @@ margin_left = 32.0
 margin_right = 64.0
 margin_bottom = 64.0
 rect_scale = Vector2( 0.5, 0.5 )
-custom_fonts/font = SubResource( 26 )
+custom_fonts/font = SubResource( 23 )
 text = "0"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="button_down" from="GUI/tileSelection/upButton" to="GUI/tileSelection/displayedTiles" method="_on_upButton_button_down"]
-[connection signal="text_changed" from="GUI/tileSelection/searchInput" to="GUI/tileSelection/displayedTiles" method="_on_searchInput_text_changed"]
+
+[node name="deleteRadius" type="Area" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 6
+
+[node name="CollisionShape" type="CollisionShape" parent="deleteRadius"]
+shape = SubResource( 24 )
+disabled = true
+
+[node name="MeshInstance" type="MeshInstance" parent="deleteRadius"]
+mesh = SubResource( 25 )
+material/0 = SubResource( 26 )
+[connection signal="button_down" from="GUI/tileSelection/upButton" to="GUI/tileSelection/displayedEntities" method="_on_upButton_button_down"]
+[connection signal="text_changed" from="GUI/tileSelection/searchInput" to="GUI/tileSelection/displayedEntities" method="_on_searchInput_text_changed"]
 [connection signal="text_entered" from="GUI/tileSelection/spaceInput" to="." method="_on_spaceInput_text_entered"]
 [connection signal="text_entered" from="GUI/tileSelection/renderInput" to="." method="_on_renderInput_text_entered"]
 [connection signal="text_entered" from="GUI/tileSelection/zCoordInput" to="." method="_on_zCoordInput_text_entered"]
 [connection signal="text_entered" from="GUI/tileSelection/yCoordInput" to="." method="_on_yCoordInput_text_entered"]
 [connection signal="text_entered" from="GUI/tileSelection/xCoordInput" to="." method="_on_xCoordInput_text_entered"]
-[connection signal="button_down" from="GUI/tileSelection/downButton" to="GUI/tileSelection/displayedTiles" method="_on_downButton_button_down"]
-[connection signal="button_down" from="GUI/tileSelection/displayedTiles/tile1/selectButton" to="GUI/tileSelection/displayedTiles" method="tile1Down"]
-[connection signal="button_down" from="GUI/tileSelection/displayedTiles/tile2/selectButton" to="GUI/tileSelection/displayedTiles" method="tile2Down"]
-[connection signal="button_down" from="GUI/tileSelection/displayedTiles/tile3/selectButton" to="GUI/tileSelection/displayedTiles" method="tile3Down"]
-[connection signal="button_down" from="GUI/tileSelection/displayedTiles/tile4/selectButton" to="GUI/tileSelection/displayedTiles" method="tile4Down"]
-[connection signal="button_down" from="GUI/tileSelection/displayedTiles/tile5/selectButton" to="GUI/tileSelection/displayedTiles" method="tile5Down"]
-[connection signal="button_down" from="GUI/tileSelection/displayedTiles/tile6/selectButton" to="GUI/tileSelection/displayedTiles" method="tile6Down"]
-[connection signal="button_down" from="GUI/tileSelection/displayedTiles/tile7/selectButton" to="GUI/tileSelection/displayedTiles" method="tile7Down"]
-[connection signal="button_down" from="GUI/tileSelection/displayedTiles/tile8/selectButton" to="GUI/tileSelection/displayedTiles" method="tile8Down"]
-[connection signal="button_down" from="GUI/tileSelection/displayedTiles/tile9/selectButton" to="GUI/tileSelection/displayedTiles" method="tile9Down"]
-[connection signal="button_down" from="GUI/tileSelection/displayedTiles/tile10/selectButton" to="GUI/tileSelection/displayedTiles" method="tile10Down"]
-[connection signal="button_down" from="GUI/tileSelection/displayedTiles/tile11/selectButton" to="GUI/tileSelection/displayedTiles" method="tile11Down"]
-[connection signal="button_down" from="GUI/tileSelection/displayedTiles/tile12/selectButton" to="GUI/tileSelection/displayedTiles" method="tile12Down"]
-[connection signal="button_down" from="GUI/tileSelection/displayedTiles/tile13/selectButton" to="GUI/tileSelection/displayedTiles" method="tile13Down"]
-[connection signal="button_down" from="GUI/tileSelection/displayedTiles/tile14/selectButton" to="GUI/tileSelection/displayedTiles" method="tile14Down"]
-[connection signal="button_down" from="GUI/tileSelection/displayedTiles/tile15/selectButton" to="GUI/tileSelection/displayedTiles" method="tile15Down"]
-[connection signal="button_down" from="GUI/tileSelection/displayedTiles/tile16/selectButton" to="GUI/tileSelection/displayedTiles" method="tile16Down"]
-[connection signal="button_down" from="GUI/tileSelection/displayedTiles/tile17/selectButton" to="GUI/tileSelection/displayedTiles" method="tile17Down"]
-[connection signal="button_down" from="GUI/tileSelection/displayedTiles/tile18/selectButton" to="GUI/tileSelection/displayedTiles" method="tile18Down"]
-[connection signal="button_down" from="GUI/tileSelection/displayedTiles/tile19/selectButton" to="GUI/tileSelection/displayedTiles" method="tile19Down"]
-[connection signal="button_down" from="GUI/tileSelection/displayedTiles/tile20/selectButton" to="GUI/tileSelection/displayedTiles" method="tile20Down"]
-[connection signal="button_down" from="GUI/tileSelection/hotbar/slot1" to="GUI/tileSelection/displayedTiles" method="_on_slot1_button_down"]
-[connection signal="button_down" from="GUI/tileSelection/hotbar/slot2" to="GUI/tileSelection/displayedTiles" method="_on_slot2_button_down"]
-[connection signal="button_down" from="GUI/tileSelection/hotbar/slot3" to="GUI/tileSelection/displayedTiles" method="_on_slot3_button_down"]
-[connection signal="button_down" from="GUI/tileSelection/hotbar/slot4" to="GUI/tileSelection/displayedTiles" method="_on_slot4_button_down"]
-[connection signal="button_down" from="GUI/tileSelection/hotbar/slot5" to="GUI/tileSelection/displayedTiles" method="_on_slot5_button_down"]
-[connection signal="button_down" from="GUI/tileSelection/hotbar/slot6" to="GUI/tileSelection/displayedTiles" method="_on_slot6_button_down"]
-[connection signal="button_down" from="GUI/tileSelection/hotbar/slot7" to="GUI/tileSelection/displayedTiles" method="_on_slot7_button_down"]
-[connection signal="button_down" from="GUI/tileSelection/hotbar/slot8" to="GUI/tileSelection/displayedTiles" method="_on_slot8_button_down"]
-[connection signal="button_down" from="GUI/tileSelection/hotbar/slot9" to="GUI/tileSelection/displayedTiles" method="_on_slot9_button_down"]
-[connection signal="button_down" from="GUI/tileSelection/hotbar/slot0" to="GUI/tileSelection/displayedTiles" method="_on_slot0_button_down"]
+[connection signal="button_down" from="GUI/tileSelection/downButton" to="GUI/tileSelection/displayedEntities" method="_on_downButton_button_down"]
+[connection signal="button_down" from="GUI/tileSelection/displayedEntities/tile1/selectButton" to="GUI/tileSelection/displayedEntities" method="tile1Down"]
+[connection signal="button_down" from="GUI/tileSelection/displayedEntities/tile2/selectButton" to="GUI/tileSelection/displayedEntities" method="tile2Down"]
+[connection signal="button_down" from="GUI/tileSelection/displayedEntities/tile3/selectButton" to="GUI/tileSelection/displayedEntities" method="tile3Down"]
+[connection signal="button_down" from="GUI/tileSelection/displayedEntities/tile4/selectButton" to="GUI/tileSelection/displayedEntities" method="tile4Down"]
+[connection signal="button_down" from="GUI/tileSelection/displayedEntities/tile5/selectButton" to="GUI/tileSelection/displayedEntities" method="tile5Down"]
+[connection signal="button_down" from="GUI/tileSelection/displayedEntities/tile6/selectButton" to="GUI/tileSelection/displayedEntities" method="tile6Down"]
+[connection signal="button_down" from="GUI/tileSelection/displayedEntities/tile7/selectButton" to="GUI/tileSelection/displayedEntities" method="tile7Down"]
+[connection signal="button_down" from="GUI/tileSelection/displayedEntities/tile8/selectButton" to="GUI/tileSelection/displayedEntities" method="tile8Down"]
+[connection signal="button_down" from="GUI/tileSelection/displayedEntities/tile9/selectButton" to="GUI/tileSelection/displayedEntities" method="tile9Down"]
+[connection signal="button_down" from="GUI/tileSelection/displayedEntities/tile10/selectButton" to="GUI/tileSelection/displayedEntities" method="tile10Down"]
+[connection signal="button_down" from="GUI/tileSelection/displayedEntities/tile11/selectButton" to="GUI/tileSelection/displayedEntities" method="tile11Down"]
+[connection signal="button_down" from="GUI/tileSelection/displayedEntities/tile12/selectButton" to="GUI/tileSelection/displayedEntities" method="tile12Down"]
+[connection signal="button_down" from="GUI/tileSelection/displayedEntities/tile13/selectButton" to="GUI/tileSelection/displayedEntities" method="tile13Down"]
+[connection signal="button_down" from="GUI/tileSelection/displayedEntities/tile14/selectButton" to="GUI/tileSelection/displayedEntities" method="tile14Down"]
+[connection signal="button_down" from="GUI/tileSelection/displayedEntities/tile15/selectButton" to="GUI/tileSelection/displayedEntities" method="tile15Down"]
+[connection signal="button_down" from="GUI/tileSelection/displayedEntities/tile16/selectButton" to="GUI/tileSelection/displayedEntities" method="tile16Down"]
+[connection signal="button_down" from="GUI/tileSelection/displayedEntities/tile17/selectButton" to="GUI/tileSelection/displayedEntities" method="tile17Down"]
+[connection signal="button_down" from="GUI/tileSelection/displayedEntities/tile18/selectButton" to="GUI/tileSelection/displayedEntities" method="tile18Down"]
+[connection signal="button_down" from="GUI/tileSelection/displayedEntities/tile19/selectButton" to="GUI/tileSelection/displayedEntities" method="tile19Down"]
+[connection signal="button_down" from="GUI/tileSelection/displayedEntities/tile20/selectButton" to="GUI/tileSelection/displayedEntities" method="tile20Down"]
+[connection signal="button_down" from="GUI/tileSelection/hotbar/slot1" to="GUI/tileSelection/displayedEntities" method="_on_slot1_button_down"]
+[connection signal="button_down" from="GUI/tileSelection/hotbar/slot2" to="GUI/tileSelection/displayedEntities" method="_on_slot2_button_down"]
+[connection signal="button_down" from="GUI/tileSelection/hotbar/slot3" to="GUI/tileSelection/displayedEntities" method="_on_slot3_button_down"]
+[connection signal="button_down" from="GUI/tileSelection/hotbar/slot4" to="GUI/tileSelection/displayedEntities" method="_on_slot4_button_down"]
+[connection signal="button_down" from="GUI/tileSelection/hotbar/slot5" to="GUI/tileSelection/displayedEntities" method="_on_slot5_button_down"]
+[connection signal="button_down" from="GUI/tileSelection/hotbar/slot6" to="GUI/tileSelection/displayedEntities" method="_on_slot6_button_down"]
+[connection signal="button_down" from="GUI/tileSelection/hotbar/slot7" to="GUI/tileSelection/displayedEntities" method="_on_slot7_button_down"]
+[connection signal="button_down" from="GUI/tileSelection/hotbar/slot8" to="GUI/tileSelection/displayedEntities" method="_on_slot8_button_down"]
+[connection signal="button_down" from="GUI/tileSelection/hotbar/slot9" to="GUI/tileSelection/displayedEntities" method="_on_slot9_button_down"]
+[connection signal="button_down" from="GUI/tileSelection/hotbar/slot0" to="GUI/tileSelection/displayedEntities" method="_on_slot0_button_down"]

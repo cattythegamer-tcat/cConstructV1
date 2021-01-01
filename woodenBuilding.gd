@@ -1,3 +1,3 @@
 extends Spatial
 
-var tile = 21
+var tile = 18

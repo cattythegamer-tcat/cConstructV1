@@ -1,11 +1,13 @@
 extends Control
 
 
-var selectedTile = false
+var selectedEntity = false
 
-var tilePortions = [[]]
+var entityPortions = [[]]
 var savedPortions = [[]]
 var page = 0
+
+var entityListLocs = []
 
 var portionLocations = []
 var searched = false
@@ -13,61 +15,61 @@ var searched = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var num = 0
-	savedPortions = GV.tiles
+	savedPortions = GV.items
 	
-	for tile in GV.tiles:
-		if len(tilePortions[num]) < 20:
-			tilePortions[num].append(tile)
+	for entity in GV.items:
+		if len(entityPortions[num]) < 20:
+			entityPortions[num].append(entity)
 		else:
 			num += 1
-			tilePortions.append([tile])
+			entityPortions.append([entity])
+		entityListLocs.append(entity)
 	
-	display(tilePortions[page])
+	display(entityPortions[page])
 	
 	
-func display(tiles):
-	if page == 0 and len(tilePortions) > 1:
+func display(entities):
+	if page == 0 and len(entityPortions) > 1:
 		$buttonInteractions.play("greyTopButton")
-	elif page == 0 and len(tilePortions) <= 1:
+	elif page == 0 and len(entityPortions) <= 1:
 		$buttonInteractions.play("greyBoth")
-	elif page == len(tilePortions) - 1:
+	elif page == len(entityPortions) - 1:
 		$buttonInteractions.play_backwards("greyTopButton")
 	else:
 		$buttonInteractions.play_backwards("greyBoth")
-		
-	for tile in range(len(tiles)):
-		get_node("tile" + str(tile + 1) + "/icon").texture = tiles[tile][1]
-		get_node("tile" + str(tile + 1) + "/name").text = tiles[tile][2]
-		get_node("tile" + str(tile + 1)).visible = true
 	
-	for tile in range(20-len(tiles)):
-		get_node("tile" + str(20-tile)).visible = false
+	for entity in range(len(entities)):
+		get_node("tile" + str(entity + 1) + "/icon").texture = GV.items[entities[entity]][1]
+		get_node("tile" + str(entity + 1) + "/name").text = entities[entity]
+		get_node("tile" + str(entity + 1)).visible = true
 	
+	for entity in range(20-len(entities)):
+		get_node("tile" + str(20-entity)).visible = false
 
 func down(tile):
-	selectedTile = tile + 20 * page
+	selectedEntity = tile + 20 * page
 
 func selectedSlot(slot):
-	if !(selectedTile in [false]):
-		if len(GV.hotbar) > slot:
+	if !(selectedEntity in [false]):
+		if len(GV.itemHotbar) > slot:
 			if searched:
-				GV.hotbar[slot] = portionLocations[selectedTile]
+				GV.itemHotbar[slot] = entityListLocs[portionLocations[selectedEntity]]
 			else:
-				GV.hotbar[slot] = selectedTile
+				GV.itemHotbar[slot] = entityListLocs[selectedEntity]
 		else:
 			if searched:
-				GV.hotbar.append(portionLocations[selectedTile])
+				GV.itemHotbar.append(entityListLocs[portionLocations[selectedEntity]])
 			else:
-				GV.hotbar.append(selectedTile)
+				GV.itemHotbar.append(entityListLocs[selectedEntity])
 
 func _on_upButton_button_down():
 	page -= 1
-	display(tilePortions[page])
+	display(entityPortions[page])
 
 
 func _on_downButton_button_down():
 	page += 1
-	display(tilePortions[page])
+	display(entityPortions[page])
 
 func _on_searchInput_text_changed(new_text):
 	var tempPortions = []
@@ -84,16 +86,16 @@ func _on_searchInput_text_changed(new_text):
 	
 	page = 0
 	var num = 0
-	tilePortions = [[]]
+	entityPortions = [[]]
 	
 	for tile in tempPortions:
-		if len(tilePortions[num]) < 20:
-			tilePortions[num].append(tile)
+		if len(entityPortions[num]) < 20:
+			entityPortions[num].append(tile)
 		else:
 			num += 1
-			tilePortions.append([tile])
+			entityPortions.append([tile])
 	
-	display(tilePortions[page])
+	display(entityPortions[page])
 
 func tile1Down(): down(0);
 
