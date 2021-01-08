@@ -25,7 +25,14 @@ onready var tiles = [
 	[preload("res://tiles/cityTiles/woodenBuilding.tscn"), preload("res://genericIcon.png"), "Wooden Building"],
 	[preload("res://tiles/genericForest/appleTree1.tscn"), preload("res://assets/genericForest/icons/appleTree.png"), "Apple Tree 1"],
 	[preload("res://tiles/genericForest/appleTree2.tscn"), preload("res://assets/genericForest/icons/appleTree.png"), "Apple Tree 2"],
-	[preload("res://tiles/genericForest/decLightGrass.tscn"), preload("res://assets/genericForest/icons/decGrass.png"), "Light Grass"]
+	[preload("res://tiles/genericForest/decLightGrass.tscn"), preload("res://assets/genericForest/icons/decGrass.png"), "Light Grass"],
+	[preload("res://tiles/cityTiles/castleCornerInner.tscn"), preload("res://genericIcon.png"), "Castle Corner Inner"],
+	[preload("res://tiles/cityTiles/castleCornerOuter.tscn"), preload("res://genericIcon.png"), "Castle Corner Outer"],
+	[preload("res://tiles/cityTiles/castleInterior.tscn"), preload("res://genericIcon.png"), "Castle Interior"],
+	[preload("res://tiles/cityTiles/castleInteriorCorner.tscn"), preload("res://genericIcon.png"), "Castle Interior Corner"],
+	[preload("res://tiles/cityTiles/castleStairs1.tscn"), preload("res://genericIcon.png"), "Castle Stairs 1"],
+	[preload("res://tiles/cityTiles/castleStairs2.tscn"), preload("res://genericIcon.png"), "Castle Stairs 2"],
+	[preload("res://tiles/cityTiles/castleWall.tscn"), preload("res://genericIcon.png"), "Castle Wall"]
 ]
 var hotbar = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 

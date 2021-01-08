@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://tiles/cityTiles/CityStonePath.gd" type="Script" id=1]
-[ext_resource path="res://assets/cityTiles/CityStonePath-0.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://assets/cityTiles/CityStonePath.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://assets/cityTiles/CityTexture.png" type="Texture" id=3]
 
 [sub_resource type="SpatialMaterial" id=1]

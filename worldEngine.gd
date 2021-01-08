@@ -306,7 +306,9 @@ func place_tile():
 func break_tile():
 	var Bpos = $currentBlock.translation
 	for tl in terrain_entities:
-		if tl.translation.x == Bpos.x and tl.translation.z == Bpos.z:
+		if tl == null:
+			terrain_entities.erase(tl)
+		elif tl.translation.x == Bpos.x and tl.translation.z == Bpos.z:
 			tl.queue_free()
 			terrain_entities.erase(tl)
 	db.query_with_args("DELETE FROM terrainData WHERE terrainData.posX = ? and terrainData.posZ = ?;", [Bpos.x, Bpos.z])
